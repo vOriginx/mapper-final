@@ -1,0 +1,60 @@
+<div class="row center-align">
+    <div class="col s12 m6">
+        <div class="center-wrapper">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Register</span>
+                </div>
+                <div class="card-action">
+                    <form name="registerUserForm" ng-submit="registerUser()" novalidate>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="first_name" id="first_name" type="text" class="validate" ng-model="first_name" ng-maxlength="30" required>
+                                <label for="first_name">First Name</label>
+                                <div ng-messages="registerUserForm.first_name.$error" ng-show="registerUserForm.first_name.$dirty">
+                                    <div ng-message="maxlength">First name is too long.</div>
+                                    <div ng-message="required">First name is required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="last_name" id="last_name" type="text" class="validate" ng-model="last_name" ng-maxlength="30" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                            <div ng-messages="registerUserForm.last_name.$error" ng-show="registerUserForm.last_name.$dirty">
+                                <div ng-message="maxlength">Last name is too long.</div>
+                                <div ng-message="required">Last name is required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="email" id="email" type="email" class="validate" ng-model="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div ng-messages="registerUserForm.email.$error" ng-show="registerUserForm.email.$dirty">                            
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                <div ng-message="maxLength">Email is too long.</div>
+                                <div ng-message="required">Email is required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="password" id="password" type="password" ng-model="password" ng-minlength="6" class="validate" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <div ng-messages="registerUserForm.password.$error" ng-show="registerUserForm.password.$dirty">
+                                <div ng-message="minLength">Your password must be 6 or more characters.</div>
+                                <div ng-message="required">Password is required.</div>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" ng-disabled="registerUserForm.$invalid">Submit</button>                       
+                    </form>
+                    <p ng-if="error" class="errorFeedback z-depth-3">
+                        {{ error }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

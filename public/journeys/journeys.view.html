@@ -1,0 +1,22 @@
+<h4>Journeys</h4>
+<div class="divider"></div>
+<p class="flow-text">Hello
+    <strong>{{user.first_name}}</strong>, welcome to the Journeys page!
+</p>
+<div class="row">
+    <div ng-if="routes.length > 0" class="col s12 m6 offset-m3 routes">
+        <ul class="collection">
+            <li ui-sref="mapperApp.journeyDetails({journeyID: route._id})" ng-repeat="route in routes" class="collection-item journeys">
+                <div>{{ route.name }}
+                    <a class="secondary-content">
+                        <i style="font-size: 1.8rem;" class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<p ng-if="routes.length === 0" class="flow-text">Oops, no journeys found, use the button below to create a new one!</p>
+<button id="addJourney" class="btn waves-effect waves-light center-align" ui-sref="mapperApp.newjourney">Add Journey</button>

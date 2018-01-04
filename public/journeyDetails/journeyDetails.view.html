@@ -1,0 +1,36 @@
+<p class="flow-text">
+    <h5>{{ routeName }} Journey</h5>
+</p>
+<div class="divider"></div>
+<div class="col s12 m6 mapContainer">
+    <div id="map"></div>
+</div>
+<div class="col s12 m6">
+    <h5>Information</h5>
+    <div class="divider"></div>
+    <div id="summaryPanel">
+    </div>
+    <div id="totalMiles"></div>
+</div>
+
+<!-- Modal Trigger -->
+<button data-target="modal1" class="btn modal-trigger">Delete Journey</button>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Confirm Delete</h4>
+        <p>Are you sure you wish to delete this journey?</p>
+    </div>
+    <div class="modal-footer">
+        <a ng-click="deleteJourney()" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">No</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+</script>

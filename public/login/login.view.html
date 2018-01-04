@@ -1,0 +1,41 @@
+<div class="row center-align">
+    <div class="col s12 m6">
+        <div class="center-wrapper">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Login</span>
+                </div>
+                <div class="card-action">
+                    <form name="loginUserForm" ng-submit="logUserIn()">                        
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="email" id="email" type="email" class="validate" ng-model="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div ng-messages="loginUserForm.email.$error" ng-show="registerUserForm.email.$dirty">                            
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                <div ng-message="maxLength">This field must be a valid email address.</div>
+                                <div ng-message="required">Email is required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="password" id="password" type="password" ng-model="password" ng-minlength="6" class="validate" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <div ng-messages="registerUserForm.password.$error" ng-show="registerUserForm.password.$dirty">
+                                <div ng-message="minLength">Your password must be 6 or more characters.</div>
+                                <div ng-message="required">Password is required.</div>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="registerUser.$invalid">Submit</button>     
+                    </form>
+                    <p>Don't have an account? Click <a ui-sref="mapperApp.register" style="margin: 0;">here</a> to register.</p>
+                    <p ng-if="error" class="errorFeedback z-depth-3">
+                        {{ error }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

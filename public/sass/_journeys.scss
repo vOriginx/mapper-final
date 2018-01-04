@@ -1,0 +1,25 @@
+#map {
+    height: 65%;
+    width: 100%;
+}
+.mapContainer {
+    padding: 1rem;
+}
+#mapControls {
+    padding: 1rem;
+}
+#saveJourney {
+    margin-top: 2rem;
+}
+#addJourney {
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+ul.collection li.collection-item.journeys {
+    color: orange;
+    height: 2.9rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

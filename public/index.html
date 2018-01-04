@@ -1,0 +1,113 @@
+<html ng-app="mapperApp" ng-controller="mapperAppCtrl">
+<head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <title>{{ title }} | Mapper.</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- bower:js -->
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/materialize/dist/js/materialize.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="lib/angular-materialize/src/angular-materialize.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/angular-messages/angular-messages.js"></script>
+  <script src="lib/angular-dom-events/angular-dom-events.js"></script>
+  <!-- endbower -->
+
+  <!--App related files-->
+  <script type="text/javascript" src="../app/mapperApp.js"></script>
+  <script type="text/javascript" src="/home/home.js"></script>
+  <script type="text/javascript" src="/journeys/journeys.js"></script>
+  <script type="text/javascript" src="/journeyDetails/journeyDetails.js"></script>
+  <script type="text/javascript" src="/newjourney/newjourney.js"></script>
+  <script type="text/javascript" src="/login/login.js"></script>
+  <script type="text/javascript" src="/register/register.js"></script>
+  <script type="text/javascript" src="/app/services/authentication.service.js"></script>
+  <script type="text/javascript" src="/app/services/mapsService.service.js"></script>
+  <script type="text/javascript" src="/app/services/journeyService.service.js"></script>
+  <script type="text/javascript" src="/app/services/ajax.js"></script>
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="lib/materialize/dist/css/materialize.css" />
+  <!-- endbower -->
+
+  <!-- Google Maps API -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhH-g0r4dcChCZPJEYVV4oTa2QFU56lhU&libraries=places" type="text/javascript"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <base href="/">
+</head>
+
+<body>
+  <header>
+    <div class="navbar-fixed">
+      <nav class="cyan darken-1">
+        <div class="nav-wrapper">
+          <div class="nav-brand">
+            <a class="brand-logo" href="/">
+              <i id="map-logo" class="fa fa-map-o" aria-hidden="true"></i> Mapper.</a>
+          </div>
+          <a href="#" class="button-collapse" data-activates="mobile-nav" data-sidenav="left" data-menuwidth="300" data-closeonclick="false">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a class="waves-effect" ui-sref="mapperApp.home">Home</a>
+            </li>
+            <li ng-if="isUserLoggedIn === true">
+              <a class="waves-effect" ui-sref="mapperApp.journeys">My Journeys</a>
+            </li>            
+            <li ng-if="isUserLoggedIn === false">
+              <a class="waves-effect" ui-sref="mapperApp.login">Login</a>
+            </li>
+            <li ng-if="isUserLoggedIn === true">
+              <a class="waves-effect" ng-href="/#/login" ng-click="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="side-nav" id="mobile-nav">
+      <li>
+        <a class="waves-effect" ui-sref="mapperApp.home">Home</a>
+      </li>
+      <li ng-if="isUserLoggedIn === true">
+        <a class="waves-effect" ui-sref="mapperApp.journeys">My Journeys</a>
+      </li>
+      <li class="divider"></li>
+      <li ng-if="isUserLoggedIn === false">
+        <a class="waves-effect" ui-sref="mapperApp.login">Login</a>
+      </li>
+      <li ng-if="isUserLoggedIn === true">
+        <a class="waves-effect" ng-href="/#/login" ng-click="logout()">Logout</a>
+      </li>
+    </ul>
+  </header>
+  <div class="container main">
+    <div ui-view>
+      <!-- Dynamically pull in content here -->
+    </div>
+  </div>
+  <footer class="page-footer cyan darken-1">
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2017 | Mapper
+        <span class="right">Crafted by Adam Nicholas</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@import 'login';
+@import 'journeys';
+
+div.container.main {
+  padding: 2rem;
+  min-height: 85%;
+}
+.divider {
+  margin-bottom: 2rem;
+}
+a.brand-logo {
+  padding: 0 0 0 1rem;
+}
+nav {
+  height: 4.3rem;
+}
+nav .nav-brand {
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+nav .nav-brand i {
+  font-size: 1.7rem;
+}
+body {
+  font-family: 'Roboto';
+  background-color: #faf9f0;
+  color: #444;
+  height: 100%;
+  }
+.card {
+  padding: 0.8rem;
+}
+header {
+  color: #fff;
+}
+footer {
+  margin-top: 1rem;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+@media only screen and (max-width:601px) {
+  #map-logo {
+    float: none;
+  }
+}

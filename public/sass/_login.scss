@@ -1,0 +1,23 @@
+//Centre login form on larger devices
+@media only screen and (min-width:600px) {
+    div.center-wrapper {
+        position: relative;
+        left: 50%;
+    }
+  }
+
+div.ngMessages {
+    color: rgba(255, 0, 0, 1);
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 60%;
+    margin: 2rem auto 0 auto;
+}
+p.errorFeedback {
+    border: 1px solid rgba(255, 0, 0, 0.8);
+    background-color: rgba(255, 0, 0, 0.4);
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: black;
+}

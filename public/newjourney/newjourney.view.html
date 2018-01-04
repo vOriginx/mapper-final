@@ -1,0 +1,35 @@
+<h4>New Journey</h4>
+<div class="divider"></div>
+<div class="row">
+    <div class="col s12 m8 mapContainer">
+        <div id="map"></div>
+    </div>
+    <div class="col s12 m4" id="mapControls">
+        <h5>Controls</h5>
+        <div class="divider"></div>
+        <div class="input-field">
+            <input id="routeName" type="text" ng-maxlength="20" required>
+            <label for="routeName">Route Name</label>
+        </div>
+        <!-- Repeat this field for additional waypoints -->
+        <div data-ng-repeat="waypoint in waypoints" class="row">
+            <div class="input-field col s10 m11">
+                <input placeholder="" ng-focus="geolocate()" id="waypoint" type="text" class="validate waypoint"
+                    required>
+                <label for="waypoint">Waypoint</label>
+            </div>
+            <div class="col s2 m1">
+                <button class="waves-effect waves-light btn" ng-hide="$first" ng-show="$last" ng-click="removeWaypoint()">-</button>
+            </div>
+        </div>
+
+        <button class="waves-effect waves-light btn" ng-click="addNewWaypoint()">Add Waypoint</button>
+        <br>
+        <br>
+        <button ng-click="saveRoute()" id="saveJourney" class="waves-effect waves-light btn">Save Journey</button>
+
+        <p class="flow-text">
+            {{ error }}
+        </p>
+    </div>
+</div>
