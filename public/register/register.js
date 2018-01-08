@@ -32,8 +32,9 @@ angular.module('mapperApp.register', ['ui.router'])
                     $window.location.reload();
                 })
                 .catch(function (error) {
-                    console.log(error.data);
-                    $scope.error = error.data.message;
+                    if (error) {
+                        $scope.error = error.data;
+                    }
                 });
         };
     }]);

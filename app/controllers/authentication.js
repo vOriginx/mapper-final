@@ -5,6 +5,15 @@ var User = mongoose.model('User');
 module.exports.register = function (req, res) {
   var user = new User();
 
+  //Check for existing user
+  User.find({
+    'local.email': req.body.email
+  }).exec(function (err, docs, info) {
+    if (docs.length) {
+      res.status(500).json('User already exists!');
+    }
+  });
+
   user.local.first_name = req.body.first_name;
   user.local.last_name = req.body.last_name;
   user.local.email = req.body.email;
